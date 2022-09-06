@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -10,7 +11,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -112,14 +113,35 @@ public class TechJobs {
                 validChoice = true;
             }
 
-        } while(!validChoice);
+        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
-    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-        System.out.println("printJobs is not implemented yet");
+
+    private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.size() == 0) {
+            System.out.println("No Results");
+
+        } else {
+
+            for (HashMap<String, String> job : someJobs) {
+                System.out.println("*****" + "\n" + "\n" + "*****");
+
+                for (Map.Entry<String, String> CATS : job.entrySet()) {
+                    System.out.println(CATS.getKey() + CATS.getValue());
+                }
+            }
+
+
+//how do you get individual value from job? How do you get key (position type),
+//select job, if no job selected if no selection, it will be no results.
+//        System.out.println("printJobs is not implemented yet");
+//        two options are search and list if/else statement with hashmap, inside hashmap (else), if job is 0, print no results.
+//    job==0 "no results", print hashmap with for loop, in hashmap put values
+        }
     }
 }
+
