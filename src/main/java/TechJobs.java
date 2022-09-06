@@ -127,21 +127,17 @@ public class TechJobs {
 
         } else {
 
-            for (HashMap<String, String> job : someJobs) {
-                System.out.println("*****" + "\n" + "\n" + "*****");
+            for (int i = 0; i < someJobs.size(); i++) {
+                System.out.println();
+                System.out.println("*****");
 
-                for (Map.Entry<String, String> CATS : job.entrySet()) {
-                    System.out.println(CATS.getKey() + CATS.getValue());
+                for (Map.Entry<String, String> job : someJobs.get(i).entrySet()) {
+                    System.out.println(job.getKey() + ": " + job.getValue());
                 }
+                System.out.println("*****");
             }
-
-
-//how do you get individual value from job? How do you get key (position type),
-//select job, if no job selected if no selection, it will be no results.
-//        System.out.println("printJobs is not implemented yet");
-//        two options are search and list if/else statement with hashmap, inside hashmap (else), if job is 0, print no results.
-//    job==0 "no results", print hashmap with for loop, in hashmap put values
         }
     }
 }
+
 
