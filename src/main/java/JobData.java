@@ -78,6 +78,9 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
+// add in checks for changing values to Lowercase (Part 3)
+            aValue = aValue.toLowerCase();
+            value = value.toLowerCase();
 
             if (aValue.contains(value)) {
                 jobs.add(row);
@@ -96,11 +99,26 @@ public class JobData {
     public static ArrayList<HashMap<String, String>> findByValue(String value) {
 
         // load data, if not already loaded
+
         loadData();
+        ArrayList<HashMap<String, String>> jobReturn = new ArrayList<>();
 
         // TODO - implement this method
-        return null;
+        for (HashMap<String, String> job: allJobs) {
+            String jobList = job.entrySet().toString().toLowerCase();
+            String lowercaseValue = value.toLowerCase();
+            if (jobList.contains(lowercaseValue)) {
+                jobReturn.add(job);
+            }
+        } return jobReturn;
     }
+
+////ArrayListfor loop ArrayList<HashMap<String, String>> jobs = new ArrayList<>(); (loop through this HashMap
+////        inside loop, have a string variable.  hashmap valueloop through alljobs
+////            string variable needs to be converted to lower case .toLowercase
+////            the variable "value" is also converted to lowercase
+////            avaule.contains is inside variable value, (if), if it is contained, return jobs, inside if condition add to hashmap (jobs.add), after that return jobs
+
 
     /**
      * Read in data from a CSV file and store it in a list
